@@ -43,18 +43,17 @@ const add = async (req, res) => {
     const checkDuplicate = await ArticleModel.findOne({ title: body.title });
     if (checkDuplicate) {
       return res.status(404).json({
-        message: Messages.AlreadyExist.replace(':item', 'title'),
+        message: Messages.AlreadyExist.replace(":item", "title"),
       });
     }
     await ArticleModel.create(body);
     return res.status(200).json({
-      message: Messages.AddedSuccessfully.replace(':item', 'Article'),
+      message: Messages.AddedSuccessfully.replace(":item", "Article"),
     });
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
 };
-
 
 /**
  * @api {get} /api/v1/article  Article - Article List
@@ -68,11 +67,14 @@ const add = async (req, res) => {
  */
 const list = async (req, res) => {
   try {
-    // const { skip = 0, limit = 10 } = req.query;
-    // const data = await ArticleModel.find({}).skip(Number(skip)).limit(Number(limit)).sort({ _id: -1 });
-    const data = await ArticleModel.find({}).sort({ _id: -1 });
+    const { skip = 0, limit = 10 } = req.query;
+    const data = await ArticleModel.find()
+      .sort({ _id: -1 })
+      .skip(Number(skip))
+      .limit(Number(limit));
+
     return res.status(200).json({
-      message: Messages.List.replace(':item', 'Article'),
+      message: Messages.List.replace(":item", "Article"),
       data,
     });
   } catch (error) {
@@ -110,11 +112,11 @@ const info = async (req, res) => {
     const data = await ArticleModel.findById(id);
     if (!data) {
       return res.status(404).json({
-        message: Messages.Invalid.replace(':item', 'article id'),
+        message: Messages.Invalid.replace(":item", "article id"),
       });
     }
     return res.status(200).json({
-      message: Messages.Info.replace(':item', 'Article'),
+      message: Messages.Info.replace(":item", "Article"),
       data,
     });
   } catch (error) {
