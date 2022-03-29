@@ -40,12 +40,6 @@ import { Messages } from "../../../common";
 const add = async (req, res) => {
   try {
     const { body } = req;
-    const checkDuplicate = await ArticleModel.findOne({ title: body.title });
-    if (checkDuplicate) {
-      return res.status(404).json({
-        message: Messages.AlreadyExist.replace(":item", "title"),
-      });
-    }
     await ArticleModel.create(body);
     return res.status(200).json({
       message: Messages.AddedSuccessfully.replace(":item", "Article"),
