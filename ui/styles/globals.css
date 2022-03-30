@@ -14,3 +14,71 @@ a {
 * {
   box-sizing: border-box;
 }
+
+
+.w-100{
+  width: 100%;
+}
+.p-3{
+  padding: 1rem;
+}
+.text-center{
+  text-align: center;
+}
+
+.header{
+  box-shadow: 0 4px 10px rgb(0 0 0 / 8%);
+}
+.container-fluid{
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.copyright-wrap{
+  font-size: 14px;
+  color: #777;
+  border-top: 1px solid #ddd;
+}
+
+
+
+.nav{
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+}
+.navbar-brand{
+  display: flex;
+  gap: 8px;
+  color: rgba(0,0,0,.9);
+  font-size: 1.25rem;  
+  cursor: pointer;
+}
+.navbar-brand label{
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.logo{
+  max-height: 34px;
+}
+
+
+.article-section{
+  padding: 48px 15px;
+}
+.article-list-wrap{
+  display: grid;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  grid-column-gap: 30px;
+  grid-row-gap: 35px;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+}
+
+.article-btn-wrap{
+  padding: 32px 15px 24px;
+}
+

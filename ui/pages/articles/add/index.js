@@ -21,10 +21,11 @@ const AddPost = () => {
     }
   };
   return (
+    <section className="article-section">
     <Grid container>
       <Grid item sm={3} />
       <Grid item sm={6}>
-        <Box sx={{ pb: 5 }}>Add Articles</Box>
+        <h3>Add Articles</h3>
 
         <form onSubmit={onAdd}>
           <Grid spacing={5} container>
@@ -71,7 +72,7 @@ const AddPost = () => {
               <TextField
                 name='publicationDate'
                 type='date'
-                label='Date'
+                /* label='Date' */
                 variant='outlined'
                 sx={{
                   width: "100%",
@@ -97,6 +98,7 @@ const AddPost = () => {
         </form>
       </Grid>
     </Grid>
+    </section>
   );
 };
 

@@ -1,4 +1,4 @@
-import { Box, Button, Grid, Paper, Skeleton, styled } from "@mui/material";
+import { Box, Button, Grid, Paper, Skeleton, styled,Container } from "@mui/material";
 import { useQuery } from "react-query";
 import { getArticles } from "../services/articles";
 import Link from "next/link";
@@ -17,13 +17,9 @@ export default function Home() {
   const articles = data?.data || [];
 
   return (
-    <>
-      <Link href='/articles/add'>
-        <a>
-          <Button variant='outlined'>Add Article</Button>
-        </a>
-      </Link>
-      <Grid container spacing={2}>
+    <section className="article-section">
+      <Container>
+      <div className="article-list-wrap">
         {isLoading &&
           new Array(5).fill(null).map((_, index) => (
             <Grid item xs={4} key={index}>
@@ -36,21 +32,27 @@ export default function Home() {
           ))}
         {!isLoading && articles.length > 0 ? (
           articles.map((article) => (
-            <Grid item xs={4} key={article._id}>
-              <Box sx={{ pt: 0.5 }}>{article.title}</Box>
-              <Box sx={{ pt: 0.5 }}>{article.body}</Box>
-              <Box sx={{ pt: 0.5 }}>{article.authorEmail}</Box>
-              <Box sx={{ pt: 0.5 }}>{article.publicationDate}</Box>
-            </Grid>
+            <article className="article-card" item key={article._id}>
+              <h2>{article.title}</h2>
+              <p>{article.body}</p>
+              <div className="meta-info">
+                <div className="post-author">{article.authorEmail}</div>
+                <p className="article-date">{article.publicationDate}</p>
+              </div>
+            </article>
           ))
         ) : (
-          <Grid item xs={12}>
-            <Box sx={{ pt: 0.5, textAlign: "center", fontSize: 20 }}>
+          <div className="w-100 p-3 text-center">
               No Articles found.
-            </Box>
-          </Grid>
+          </div>
         )}
-      </Grid>
-    </>
+      </div>     
+      <Link href='/articles/add'>
+        <div className="w-100 article-btn-wrap text-center">
+          <Button variant='outlined'>Add Your Article</Button>
+        </div>
+        </Link>
+      </Container>
+    </section>
   );
 }
