@@ -11,7 +11,7 @@ const Header = () => {
           <Link href="/">
             <div className="navbar-brand">
               <img src="logo.svg" className="logo" alt="Article Application" />
-              <label htmlFor="navbarBrand">Next Blog App</label>
+              <label htmlFor="navbarBrand">Next Article App</label>
             </div>
           </Link>
           <Link href="/articles/add">

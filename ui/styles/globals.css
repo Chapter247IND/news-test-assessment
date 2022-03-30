@@ -5,7 +5,9 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
-
+body{
+  color: #212529;
+}
 a {
   color: inherit;
   text-decoration: none;
@@ -77,7 +79,31 @@ a {
   grid-row-gap: 35px;
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
 }
-
+.article-card{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  border-radius: 5px;
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 8px 0 rgb(0 0 0 / 10%);
+  box-shadow: 0 0 8px 0 rgb(0 0 0 / 10%);
+  padding: 16px 20px;
+  transition: all 3s;
+}
+.article-content{
+  flex: 1;
+  margin-top: 0;
+}
+.meta-info{
+  border-top: 1px dashed #ddd;
+  display: flex;
+  padding: 12px 0;
+  gap: 4px;
+  color: #999594;
+}
+.meta-info p{
+  margin: 0;
+}
 .article-btn-wrap{
   padding: 32px 15px 24px;
 }
